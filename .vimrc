@@ -14,7 +14,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kana/vim-submode'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tomasr/molokai'
 NeoBundle 'christoomey/vim-tmux-navigator'
  
 call neobundle#end()
@@ -89,7 +89,7 @@ set backspace=indent,eol,start
 " 構文毎に文字色を変化させる
 syntax on
 " カラースキーマの指定
-colorscheme desert
+colorscheme molokai
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 """""""""""""""""""""""""""""
