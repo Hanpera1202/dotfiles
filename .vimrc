@@ -103,15 +103,17 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-" 行頭/行末移動
-nnoremap <Space>h ^
-nnoremap <Space>l $
-
 " vimtabの設定
 nnoremap <C-n> gt
 nnoremap <C-p> gT
 nnoremap <C-t> :<C-u>tabnew<CR>
 nnoremap <C-x> :<C-u>q<CR>
+
+let mapleader = "\<Space>"
+
+" 行頭/行末移動
+nnoremap <Leader>h ^
+nnoremap <Leader>l $
 
 " MAC、LINUXの場合はvimのコピーをtmuxを跨いでも共有する
 let OSTYPE = system('uname')
