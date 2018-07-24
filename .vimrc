@@ -12,10 +12,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " プラグイン
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'kana/vim-submode'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'leafgarland/typescript-vim'
  
 call neobundle#end()
  
@@ -76,15 +75,17 @@ set showmatch
 " 改行時に前の行のインデントを継続する
 set autoindent
 " タブ文字の表示幅
-set tabstop=4
+set tabstop=2
 " Vimが挿入するインデントの幅
-set shiftwidth=4
+set shiftwidth=2
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
 
 " 構文毎に文字色を変化させる
 syntax on
@@ -95,7 +96,7 @@ highlight LineNr ctermfg=darkyellow
 """""""""""""""""""""""""""""
 
 " NERDTreeを開く
-nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
  
 " 挿入モードでのカーソル移動
 inoremap <C-j> <Down>
@@ -103,13 +104,12 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-" vimtabの設定
-nnoremap <C-n> gt
-nnoremap <C-p> gT
-nnoremap <C-t> :<C-u>tabnew<CR>
-nnoremap <C-x> :<C-u>q<CR>
-
 let mapleader = "\<Space>"
+
+" vimtabの設
+nnoremap sl gt
+nnoremap sh gT
+nnoremap <C-t> :<C-u>tabnew<CR>
 
 " 行頭/行末移動
 nnoremap <Leader>h ^
@@ -120,8 +120,12 @@ let OSTYPE = system('uname')
 if OSTYPE == "Darwin\n" || OSTYPE == "Linux\n"
     noremap y y:wv<CR>
     noremap yy yy:wv<CR>
+    noremap x x:wv<CR>
     noremap p :rv!<CR>p
 endif
 
 set viminfo='50,\"3000,:0,n~/.viminfo
 
+runtime! config/plugins/*.vim
+
+autocmd QuickFixCmdPost vimgrep cwindow
