@@ -84,6 +84,8 @@ set smarttab
 set whichwrap=b,s,h,l,<,>,[,]
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
+" yank to clipboard for MAC
+set clipboard=unnamed
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 
