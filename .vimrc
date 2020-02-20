@@ -1,32 +1,25 @@
-"---------------------------
-" Start Neobundle Settings.
-"---------------------------
-" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
- 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
- 
-" neobundle自体をneobundleで管理
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" プラグイン
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'leafgarland/typescript-vim'
- 
-call neobundle#end()
- 
-" Required:
-filetype plugin indent on
- 
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
-NeoBundleCheck
- 
 "-------------------------
-" End Neobundle Settings.
+" Start Vundle Settings.
+"-------------------------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"call vundle#begin('~/some/path/here')
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomasr/molokai'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'leafgarland/typescript-vim'
+ 
+call vundle#end()
+filetype plugin indent on
+"-------------------------
+" End Vundle Settings.
 "-------------------------
 
 """"""""""""""""""""""""""""""
