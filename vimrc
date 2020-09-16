@@ -62,7 +62,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set backspace=indent,eol,start
 
 " yank to clipboard for MAC
-set clipboard=unnamed
+"set clipboard=unnamed
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 " Update ctags file when to save file
@@ -83,13 +83,13 @@ nnoremap sh gT
 nnoremap <C-t> :<C-u>tabnew<CR>
 
 " share vim's clipboard with tmux
-let OSTYPE = system('uname')
-if OSTYPE == "Darwin\n" || OSTYPE == "Linux\n"
-    noremap y y:wv<CR>
-    noremap yy yy:wv<CR>
-    noremap x x:wv<CR>
-    noremap p :rv!<CR>p
-endif
+"let OSTYPE = system('uname')
+"if OSTYPE == "Darwin\n" || OSTYPE == "Linux\n"
+"    noremap y y:wv<CR>
+"    noremap yy yy:wv<CR>
+"    noremap x x:wv<CR>
+"    noremap p :rv!<CR>p
+"endif
 
 set viminfo='50,\"3000,:0,n~/.viminfo
 
