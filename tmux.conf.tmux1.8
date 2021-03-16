@@ -1,23 +1,14 @@
-# prefixキーをC-sに変更する
-#set -g prefix C-s
-
-# C-bのキーバインドを解除する
-#unbind C-b
-
-# キーストロークのディレイを減らす
+# reduce delay of keystroke
 set -sg escape-time 1
 
-# ウィンドウのインデックスを1から始める
+# start window index from 1
 set -g base-index 1
 
-# ペインのインデックスを1から始める
+# start pain index from 1
 setw -g pane-base-index 1
 
-# 設定ファイルをリロードする
+# realod config file
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
-# create window
-#bind t new-window -c "#{pane_current_path}"
 
 # split window vertically
 bind | split-window -hc "#{pane_current_path}"
@@ -40,19 +31,18 @@ bind -r L resize-pane -R 5
 # shortcut for synchronize-panes
 bind e set -g synchronize-panes
 
-# 256色端末を使用する
+# 256 color's terminal
 set -g default-terminal "xterm-256color"
 
-# アクティブなウィンドウを目立たせる
+# highliht active window
 setw -g window-status-current-fg white
 setw -g window-status-current-bg red
 setw -g window-status-current-attr bright
 
-# コピーモードを設定する
-## viのキーバインドを使用する
+# use vim keybind in copy mode
 setw -g mode-keys vi
 
-## コピーモードの操作をvi風に設定する
+# set operation of copy mode as vim like
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 unbind -t vi-copy Enter
