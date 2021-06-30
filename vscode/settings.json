@@ -1,5 +1,5 @@
 {
-    //"editor.scrollBeyondLastLine": false,
+    // This setting is referred by https://github.com/ChristianChiarulli/LunarVim/blob/master/utils/vscode_config/settings.json
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/hiromunakazato/dotfiles/vscode/init.vim",
     "whichkey.sortOrder": "alphabetically",
@@ -259,7 +259,7 @@
             "key": "d",
             "name": "Diff",
             "type": "command",
-            "command": "gitlens.diffWith",
+            "command": "gitlens.diffWithPrevious",
             "when": "gitlens:enabled && config.gitlens.keymap == 'alternate'"
           },
           {
@@ -269,6 +269,140 @@
             "command": "git.push"
           }
        ]
+      },
+      {
+        "key": "l",
+        "name": "LSP...",
+        "type": "bindings",
+        "bindings": [
+          {
+            "key": ";",
+            "name": "Refactor",
+            "type": "command",
+            "command": "editor.action.refactor",
+            "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+          },
+          {
+            "key": "a",
+            "name": "Auto Fix",
+            "type": "command",
+            "command": "editor.action.autoFix",
+            "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+          },
+          {
+            "key": "d",
+            "name": "Definition",
+            "type": "command",
+            "command": "editor.action.revealDefinition",
+            "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+          },
+          {
+            "key": "D",
+            "name": "Declaration",
+            "type": "command",
+            "command": "editor.action.revealDeclaration"
+          },
+          {
+            "key": "e",
+            "name": "Errors",
+            "type": "command",
+            "command": "workbench.actions.view.problems"
+          },
+          {
+            "key": "f",
+            "name": "Format",
+            "type": "command",
+            "command": "editor.action.formatDocument",
+            "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+          },
+          {
+            "key": "i",
+            "name": "Implementation",
+            "type": "command",
+            "command": "editor.action.goToImplementation",
+            "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+          },
+          {
+            "key": "l",
+            "name": "Code Lens",
+            "type": "command",
+            "command": "codelens.showLensesInCurrentLine"
+          },
+          {
+            "key": "n",
+            "name": "Next Problem",
+            "type": "command",
+            "command": "editor.action.marker.next",
+            "when": "editorFocus"
+          },
+          {
+            "key": "N",
+            "name": "Next Problem (Proj)",
+            "type": "command",
+            "command": "editor.action.marker.nextInFiles",
+            "when": "editorFocus"
+          },
+          {
+            "key": "o",
+            "name": "Outline",
+            "type": "command",
+            "command": "outline.focus"
+          },
+          {
+            "key": "p",
+            "name": "Prev Problem",
+            "type": "command",
+            "command": "editor.action.marker.prevInFiles",
+            "when": "editorFocus"
+          },
+          {
+            "key": "P",
+            "name": "Prev Problem (Proj)",
+            "type": "command",
+            "command": "editor.action.marker.prev",
+            "when": "editorFocus"
+          },
+          {
+            "key": "q",
+            "name": "Quick Fix",
+            "type": "command",
+            "command": "editor.action.quickFix",
+            "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+          },
+          {
+            "key": "r",
+            "name": "References",
+            "type": "command",
+            "command": "editor.action.goToReferences",
+            "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+          },
+          {
+            "key": "R",
+            "name": "Rename",
+            "type": "command",
+            "command": "editor.action.rename",
+            "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+          },
+          {
+            "key": "v",
+            "name": "View All References",
+            "type": "command",
+            "command": "references-view.find",
+            "when": "editorHasReferenceProvider"
+          },
+          {
+            "key": "s",
+            "name": "Go To Symbol",
+            "type": "command",
+            "command": "workbench.action.gotoSymbol"
+          },
+          {
+            "key": "S",
+            "name": "Show All Symbols",
+            "type": "command",
+            "command": "workbench.action.showAllSymbols"
+          }
+        ]
       },
       {
         "key": "n",
@@ -293,67 +427,6 @@
             "name": "Text",
             "type": "command",
             "command": "workbench.action.findInFiles"
-          }
-        ]
-      },
-      {
-        "key": "S",
-        "name": "Show...",
-        "type": "bindings",
-        "bindings": [
-          {
-            "key": "e",
-            "name": "Show explorer",
-            "type": "command",
-            "command": "workbench.view.explorer"
-          },
-          {
-            "key": "s",
-            "name": "Show search",
-            "type": "command",
-            "command": "workbench.view.search"
-          },
-          {
-            "key": "g",
-            "name": "Show source control",
-            "type": "command",
-            "command": "workbench.view.scm"
-          },
-          {
-            "key": "t",
-            "name": "Show test",
-            "type": "command",
-            "command": "workbench.view.extension.test"
-          },
-          {
-            "key": "r",
-            "name": "Show remote explorer",
-            "type": "command",
-            "command": "workbench.view.remote"
-          },
-          {
-            "key": "x",
-            "name": "Show extensions",
-            "type": "command",
-            "command": "workbench.view.extensions"
-          },
-          {
-            "key": "p",
-            "name": "Show problem",
-            "type": "command",
-            "command": "workbench.actions.view.problems"
-          },
-          {
-            "key": "o",
-            "name": "Show output",
-            "type": "command",
-            "command": "workbench.action.output.toggleOutput"
-          },
-          {
-            "key": "d",
-            "name": "Show debug console",
-            "type": "command",
-            "command": "workbench.debug.action.toggleRepl"
           }
         ]
       },
