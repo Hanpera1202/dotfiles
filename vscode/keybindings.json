@@ -162,23 +162,27 @@
         "when": "neovim.mode != 'insert' && !inputFocus"
     },
     {
-        "key": "shift+cmd+t",
+        "key": "shift+cmd+u",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
     {
-        "key": "shift+cmd+r",
+        "key": "shift+cmd+y",
         "command": "workbench.debug.action.toggleRepl",
         "when": "workbench.panel.repl.view.active"
     },
     {
-        "key": "shift+cmd+e",
+        "key": "shift+cmd+t",
         "command": "workbench.action.output.toggleOutput",
         "when": "workbench.panel.output.active"
     },
     {
-        "key": "shift+cmd+w",
+        "key": "shift+cmd+r",
         "command": "workbench.actions.view.problems",
         "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "shift+cmd+m",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
