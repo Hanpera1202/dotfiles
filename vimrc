@@ -13,18 +13,18 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'leafgarland/typescript-vim'
 
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'mattn/vim-lsp-icons'
+"Plugin 'prabirshrestha/async.vim'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'mattn/vim-lsp-settings'
+"Plugin 'mattn/vim-lsp-icons'
 
-Plugin 'hrsh7th/vim-vsnip'
-Plugin 'hrsh7th/vim-vsnip-integ'
+"Plugin 'hrsh7th/vim-vsnip'
+"Plugin 'hrsh7th/vim-vsnip-integ'
  
 call vundle#end()
 filetype plugin indent on
@@ -43,7 +43,7 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set title
 set wildmenu
 set showcmd
-set backupdir=$HOME/.vimbackup
+"set backupdir=$HOME/.vimbackup
 set browsedir=buffer
 set smartcase
 set hlsearch
@@ -60,6 +60,8 @@ set shiftwidth=2
 set smarttab
 set whichwrap=b,s,h,l,<,>,[,]
 set backspace=indent,eol,start
+set hidden
+set colorcolumn=100
 
 " yank to clipboard for MAC
 "set clipboard=unnamed
@@ -78,20 +80,11 @@ highlight LineNr ctermfg=darkyellow
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
  
-nnoremap sl gt
-nnoremap sh gT
+nmap sl :tabnext<CR>
+nmap sh :tabprevious<CR>
 nnoremap <C-t> :<C-u>tabnew<CR>
 
-" share vim's clipboard with tmux
-"let OSTYPE = system('uname')
-"if OSTYPE == "Darwin\n" || OSTYPE == "Linux\n"
-"    noremap y y:wv<CR>
-"    noremap yy yy:wv<CR>
-"    noremap x x:wv<CR>
-"    noremap p :rv!<CR>p
-"endif
-
-set viminfo='50,\"3000,:0,n~/.viminfo
+"set viminfo='50,\"3000,:0,n~/.viminfo
 
 runtime! config/plugins/*.vim
 
