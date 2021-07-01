@@ -65,7 +65,7 @@
     },
     {
         "key": "o",
-        "command": "list.toggleExpand",
+        "command": "list.select",
         "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
