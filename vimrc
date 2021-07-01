@@ -78,10 +78,12 @@ colorscheme molokai
 highlight LineNr ctermfg=darkyellow
 """""""""""""""""""""""""""""
 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-e> :<C-u>NERDTreeToggle<CR>
  
-nmap sl :tabnext<CR>
-nmap sh :tabprevious<CR>
+nnoremap <silent>sl :<C-u>tabnext<CR>
+nnoremap <silent>sh :<C-u>tabprevious<CR>
+nnoremap <silent><C-l> :<C-u>wincmd l<CR>
+nnoremap <silent><C-h> :<C-u>wincmd h<CR>
 nnoremap <C-t> :<C-u>tabnew<CR>
 
 "set viminfo='50,\"3000,:0,n~/.viminfo
