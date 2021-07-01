@@ -438,5 +438,6 @@
       }
     ],
     "workbench.list.automaticKeyboardNavigation": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "redhat.telemetry.enabled": false
 }

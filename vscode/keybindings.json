@@ -10,6 +10,11 @@
         "command": "workbench.view.explorer"
     },
     {
+        "key": "ctrl+e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "explorerViewletVisible"
+    },
+    {
         "key": "cmd+shift+e",
         "command": "-workbench.view.explorer"
     },
@@ -179,6 +184,11 @@
     {
         "key": "shift+cmd+r",
         "command": "workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "shift+cmd+e",
+        "command": "workbench.action.focusActiveEditorGroup",
         "when": "workbench.panel.markers.view.active"
     },
     {
