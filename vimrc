@@ -6,7 +6,6 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-"call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -86,7 +85,7 @@ nnoremap <silent><C-l> :<C-u>wincmd l<CR>
 nnoremap <silent><C-h> :<C-u>wincmd h<CR>
 nnoremap <C-t> :<C-u>tabnew<CR>
 
-"set viminfo='50,\"3000,:0,n~/.viminfo
+set viminfo='50,\"3000,:0,n~/.viminfo
 
 runtime! config/plugins/*.vim
 
