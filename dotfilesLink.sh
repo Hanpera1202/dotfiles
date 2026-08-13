@@ -17,8 +17,15 @@ if [ -n "$TMUX_CONF" ]; then
 else
   echo "tmux not found or version unrecognized ($TMUX_VER), skipping ~/.tmux.conf"
 fi
-ln -sf "$DOTFILES/.bashrc" ~/.bashrc
-ln -sf "$DOTFILES/.zshrc" ~/.zshrc
+append_source() {
+  local target="$1"
+  local line="[ -f \"$DOTFILES/$2\" ] && source \"$DOTFILES/$2\""
+  touch "$target"
+  grep -qF "$DOTFILES/$2" "$target" || echo "$line" >> "$target"
+  echo "Appended source to $target"
+}
+append_source ~/.bashrc .bashrc
+append_source ~/.zshrc .zshrc
 
 VSCODE_DIR="$HOME/Library/Application Support/Code/User"
 if [ -d "$VSCODE_DIR" ]; then
