@@ -52,7 +52,7 @@ set colorcolumn=100
 autocmd InsertLeave * set nopaste
 
 syntax on
-colorscheme molokai
+silent! colorscheme molokai
 highlight LineNr ctermfg=darkyellow
 """""""""""""""""""""""""""""
 
