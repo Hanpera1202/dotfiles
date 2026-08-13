@@ -2,7 +2,8 @@
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 ln -sf "$DOTFILES/vimrc" ~/.vimrc
-ln -sf "$DOTFILES/vim-config" ~/.vim/config
+mkdir -p ~/.vim
+ln -sfn "$DOTFILES/vim-config" ~/.vim/config
 TMUX_VER=$(tmux -V 2>/dev/null | awk '{print $2}')
 case "$TMUX_VER" in
   3.[4-9]*|[4-9]*) TMUX_CONF="tmux.conf.v3.4" ;;
