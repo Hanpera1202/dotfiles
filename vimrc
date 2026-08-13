@@ -1,32 +1,20 @@
 "-------------------------
 " Start Vundle Settings.
 "-------------------------
-set nocompatible
-filetype off
+if !empty(glob('~/.vim/bundle/Vundle.vim'))
+  set nocompatible
+  filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'tomasr/molokai'
 
-" Plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'tomasr/molokai'
-"Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'leafgarland/typescript-vim'
-
-"Plugin 'prabirshrestha/async.vim'
-"Plugin 'prabirshrestha/asyncomplete.vim'
-"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-"Plugin 'prabirshrestha/vim-lsp'
-"Plugin 'mattn/vim-lsp-settings'
-"Plugin 'mattn/vim-lsp-icons'
-
-"Plugin 'hrsh7th/vim-vsnip'
-"Plugin 'hrsh7th/vim-vsnip-integ'
- 
-call vundle#end()
-filetype plugin indent on
+  call vundle#end()
+  filetype plugin indent on
+endif
 "-------------------------
 " End Vundle Settings.
 "-------------------------
@@ -42,7 +30,6 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set title
 set wildmenu
 set showcmd
-"set backupdir=$HOME/.vimbackup
 set browsedir=buffer
 set smartcase
 set hlsearch
@@ -62,15 +49,7 @@ set backspace=indent,eol,start
 set hidden
 set colorcolumn=100
 
-" yank to clipboard for MAC
-"set clipboard=unnamed
-" Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
-" Update ctags file when to save file
-"autocmd BufWritePost * call system("ctags -R")
-
-autocmd Filetype java set makeprg=rm\ -f\ *.class;javac\ %
-set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
 syntax on
 colorscheme molokai
@@ -78,7 +57,7 @@ highlight LineNr ctermfg=darkyellow
 """""""""""""""""""""""""""""
 
 nnoremap <silent><C-e> :<C-u>NERDTreeToggle<CR>
- 
+
 nmap <silent>sl :<C-u>tabnext<CR>
 nmap <silent>sh :<C-u>tabprevious<CR>
 nnoremap <silent><C-l> :<C-u>wincmd l<CR>
@@ -86,7 +65,3 @@ nnoremap <silent><C-h> :<C-u>wincmd h<CR>
 nnoremap <C-t> :<C-u>tabnew<CR>
 
 set viminfo='50,\"3000,:0,n~/.viminfo
-
-runtime! config/plugins/*.vim
-
-autocmd QuickFixCmdPost vimgrep cwindow
