@@ -29,7 +29,9 @@ chmod +x dotfilesLink.sh
 ./dotfilesLink.sh
 ```
 
-`dotfilesLink.sh` creates symlinks from the standard config locations to this repo. On macOS it also links the VSCode settings if `~/Library/Application Support/Code/User` exists.
+`dotfilesLink.sh` creates symlinks for Vim and tmux configs, and appends a `source` line to `~/.bashrc` and `~/.zshrc` so system-provided content is preserved. On macOS it also links the VSCode settings if `~/Library/Application Support/Code/User` exists.
+
+> **Warning:** Do not manually symlink `~/.bashrc` or `~/.zshrc` to files in this repo. If the script detects that either file is already a symlink, it will skip it and print a warning — this prevents an infinite source loop that would make the shell crash on login and lock you out of the server.
 
 ## Vim
 

@@ -19,9 +19,14 @@ else
 fi
 append_source() {
   local target="$1"
-  local line="[ -f \"$DOTFILES/$2\" ] && source \"$DOTFILES/$2\""
+  local file="$2"
+  local line="[ -f \"$DOTFILES/$file\" ] && source \"$DOTFILES/$file\""
+  if [ -L "$target" ]; then
+    echo "WARNING: $target is a symlink — skipping to avoid writing into the symlink target"
+    return 1
+  fi
   touch "$target"
-  grep -qF "$DOTFILES/$2" "$target" || echo "$line" >> "$target"
+  grep -qF "$DOTFILES/$file" "$target" || echo "$line" >> "$target"
   echo "Appended source to $target"
 }
 append_source ~/.bashrc .bashrc
